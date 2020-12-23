@@ -1,0 +1,24 @@
+﻿@model TotpTokenView
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="card text-center col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+    <div class="card-body">
+        <h5 class="card-title">Totp</h5>
+        <form asp-action="Totp">
+            <div class="form-group">
+                @if (Model?.Error != null)
+                {
+                    <div class="text-danger">@Model.Error</div>
+                }
+                <label asp-for="Token" class="control-label"></label>
+                <input asp-for="Token" class="form-control" />
+                <span asp-validation-for="Token" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

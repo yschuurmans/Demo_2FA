@@ -1,0 +1,30 @@
+﻿@model LoginView 
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="card text-center col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+    <div class="card-body">
+        <h5 class="card-title">Register</h5>
+        <form asp-action="Register">
+            @if (Model?.Error != null)
+            {
+                <div class="text-danger">@Model.Error</div>
+            }
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input type="password" asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
